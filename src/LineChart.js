@@ -55,7 +55,6 @@ class LineChart extends Component {
     this.dataRange = this.highestDataPoint - this.lowestDataPoint;
 
     if (!config.grid || !config.grid.stepSize) {
-      console.log('dont have stepsize a')
       // default grid
       if (this.dataRange === 0) {
         //edge case for 1 value or multiple times the same value
@@ -73,13 +72,10 @@ class LineChart extends Component {
       }
     } else {
       // grid specified in config
-      console.log('have stepsize b' )
       this.lowestYLabel = (Math.floor(this.lowestDataPoint / grid.stepSize) - 1) * grid.stepSize;
       // this.lowestYLabel = this.lowestDataPoint == 0 ? 0 : (Math.floor(this.lowestDataPoint / grid.stepSize) - 1) * grid.stepSize;
       this.highestYLabel = (Math.ceil(this.highestDataPoint / grid.stepSize) + 1) * grid.stepSize;
     }
-
-    console.log('calculate ylabel', this.lowestYLabel, this.lowestDataPoint)
     this.top = this.highestYLabel;
     this.bottom = this.lowestYLabel;
     this.range = this.top - this.bottom;
@@ -195,7 +191,6 @@ class LineChart extends Component {
     const { yAxis, insetX } = config;
 
     if (yAxis.visible && this.yLabels) {
-      console.log('y labels', this.yLabels)
       return this.yLabels.slice(1, this.yLabels.length - 1).map(yLabel => (
         <Text
           key={yLabel}
