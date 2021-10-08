@@ -191,7 +191,7 @@ class LineChart extends Component {
     const { yAxis, insetX } = config;
 
     if (yAxis.visible && this.yLabels) {
-      return this.yLabels.slice(1, this.yLabels.length - 1).map(yLabel => (
+      return this.yLabels.slice(1).map(yLabel => (
         <Text
           key={yLabel}
           fill={yAxis.labelColor}
